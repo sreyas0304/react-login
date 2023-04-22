@@ -23,6 +23,7 @@ app.use(
     })
 );
 
+  app.use(bodyParser.json());
 // DB Config
 const db = require("./config/keys").mongoURI;
 
@@ -35,9 +36,10 @@ mongoose
     )
     .then(() => console.log("MongoDB successfully connected"))
     .catch(err => console.log(`MongoDB connection error: ${err}`));
-   // .catch(err => console.log(err));
+// .catch(err => console.log(err));
 
-app.use(bodyParser.json());
+app.listen(port, () => console.log(`Server up and running port ${port} !`));
+
 app.use(passport.initialize());
 
 passport.use(new FacebookStrategy({
@@ -100,10 +102,10 @@ app.get('/facebook_login/callback', passport.authenticate('facebook', { session:
 //   cb(null, obj);
 // });
 
-app.get('/logout', function(req, res) {
+app.get('/logout', function (req, res) {
     req.logout();
     res.status(200).json({ message: "User has logged out" });
-  });
+});
 
 
 app.listen(port, () => console.log(`Server listening on port ${port}`));

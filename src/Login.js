@@ -87,13 +87,13 @@ const Login = () => {
     const handleFacebookLogin = async () => {
         try {
             // Redirect to the Facebook Login page
-            window.location.href = "http://localhost:4000/facebook_login";
+            window.location.href = "http://localhost:4001/facebook_login";
           } catch (error) {
             console.log(error);
           }
 
         try {
-            const response = await axios.post("http://localhost:4000/facebook_login", {
+            const response = await axios.post("http://localhost:4001/facebook_login", {
             access_token: "FACEBOOK_ACCESS_TOKEN",
             });
             setUser(response.data);

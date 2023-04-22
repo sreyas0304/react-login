@@ -1,0 +1,5 @@
+module.exports = {
+    FRONTEND_HOST: 'FB-New', 
+    FACEBOOK_CLIENT_ID: '191905433448640',
+    FACEBOOK_CLIENT_SECRET: '32e761aaf25b8cc91b7e4218a9c070c3',
+  }
